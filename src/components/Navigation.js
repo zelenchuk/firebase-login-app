@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Navigation extends Component {
+  state = {};
+
   render() {
+    const classNameFunc = ({ isActive }) => (isActive ? "active_page" : "");
+
     return (
       <nav>
-        <Link to="/">Login</Link> | <Link to="/register">Register</Link>
+        <NavLink className={classNameFunc} to="/">
+          Login
+        </NavLink>{" "}
+        |{" "}
+        <NavLink className={classNameFunc} to="/register">
+          Register
+        </NavLink>
       </nav>
     );
   }

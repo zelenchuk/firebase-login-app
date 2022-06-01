@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Link, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -14,10 +14,19 @@ class App extends Component {
         <Header />
 
         <Routes>
-          <Route path="/" element={<LoginForm />} />
-          <Route path="register" element={<RegisterForm />} />
+          <Route
+            activeClassName="active_page"
+            path="/"
+            element={<LoginForm />}
+          />
+          <Route
+            activeClassName="active_page"
+            path="register"
+            element={<RegisterForm />}
+          />
         </Routes>
-        <Footer />
+
+        <Footer title="Zelenchuk Serhii &copy; 2022, Tbilisi" />
       </>
     );
   }
