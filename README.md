@@ -13,13 +13,18 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Libs used
 
-`- create-react-app`
-`- react-router-dom`
+### `- create-react-app`
+
+### `- react-router-dom`
 
 ## Components List
 
-`App------------------|`
-`- Header`
-`-- Navigation`
-`- LoginForm`
-`- RegisterForm`
+### `App------------------|`
+
+### `- Header`
+
+### `-- Navigation`
+
+### `- LoginForm`
+
+### `- RegisterForm`
