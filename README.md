@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Firebase Login App
 
 In the project directory, you can run:
 
