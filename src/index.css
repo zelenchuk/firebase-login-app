@@ -212,3 +212,119 @@ footer {
   *
   * -----------------------------------------------------------
   **/
+
+/**
+*
+* Dashboard CSS | Start
+*
+**/
+
+#dashboard * {
+  transition: 0.1s ease-in-out;
+}
+
+#dashboard {
+  padding: 180px 0 0 0;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+}
+
+#dashboard h1 {
+  text-align: center;
+  padding: 20px 0;
+}
+
+#dashboard p {
+  margin: 0 0 30px 0;
+}
+
+#dashboard a {
+  margin: 30px 0 0 0;
+  width: 100px;
+  justify-self: center;
+  background: #fff;
+  display: grid;
+  color: rgb(30, 30, 124);
+  border-radius: 9px;
+  border: 1px solid rgb(30, 30, 124);
+}
+
+#dashboard a:hover {
+  border-color: #000;
+  background: rgb(30, 30, 124);
+  color: #fff;
+  cursor: pointer;
+}
+
+#actions_block {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  gap: 20px;
+}
+
+.action_item {
+  background: #000;
+  padding: 40px 0;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 9px;
+}
+
+.action_item:hover {
+  background: #fff;
+  cursor: pointer;
+  border-color: #000;
+  color: #000;
+}
+
+/**
+  *
+  * Dashboard CSS | END
+  *
+  * -----------------------------------------------------------
+  **/
+
+#error {
+  margin: 100px 0 0 0;
+  padding: 10px 0;
+  background: rgb(191, 46, 46);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  transition: 0.1s ease-in-out;
+}
+
+/**
+*
+* Media CSS | Start
+*
+**/
+
+@media (max-width: 425px) {
+  main {
+    grid-template-columns: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    grid-template-columns: 100%;
+  }
+
+  #actions_block {
+    display: grid;
+    grid-template-columns: 40% 40%;
+    gap: 15px;
+    justify-content: center;
+    padding: 30px 0;
+  }
+}
+
+/**
+  *
+  * Media CSS | END
+  *
+  * -----------------------------------------------------------
+  **/
