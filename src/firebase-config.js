@@ -1,4 +1,7 @@
+/* Documentaiton: https://firebase.google.com/docs/auth/web/start#web-version-9 */
+
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -11,4 +14,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase Authentication and get a reference to the service
+export const auth = getAuth(app);

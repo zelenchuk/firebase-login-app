@@ -9,15 +9,23 @@ class Navigation extends Component {
     const classNameFunc = ({ isActive }) => (isActive ? "active_page" : "");
 
     return (
-      <nav>
-        <NavLink className={classNameFunc} to="/">
-          Login
-        </NavLink>{" "}
-        |{" "}
-        <NavLink className={classNameFunc} to="/register">
-          Register
-        </NavLink>
-      </nav>
+      <>
+        {!this.props.isAuth ? (
+          <nav>
+            <NavLink className={classNameFunc} to="/">
+              Login
+            </NavLink>{" "}
+            |{" "}
+            <NavLink className={classNameFunc} to="/register">
+              Register
+            </NavLink>
+          </nav>
+        ) : (
+          <a id="logout" onClick={() => this.props.userLogout()}>
+            Logout
+          </a>
+        )}
+      </>
     );
   }
 }

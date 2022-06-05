@@ -6,7 +6,10 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <Navigation />
+        <Navigation
+          isAuth={this.props.isAuth}
+          userLogout={this.props.userLogout}
+        />
       </header>
     );
   }
