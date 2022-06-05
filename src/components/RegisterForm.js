@@ -24,6 +24,7 @@ class RegisterForm extends Component {
     return (
       <>
         {this.props.isAuth && <Navigate to="/dashboard" replace={true} />}
+
         {!this.props.loading ? (
           <main>
             <form autoComplete="off" onSubmit={this.onSubmit}>
