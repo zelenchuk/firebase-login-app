@@ -46,7 +46,7 @@ class LoginForm extends Component {
                 value={this.state.password}
                 onChange={(e) => this.setState({ password: e.target.value })}
               />
-              <input type="submit" value="Login" />
+              <input type="submit" value="Login" disabled={this.props.errors} />
             </form>
           </main>
         ) : (

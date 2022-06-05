@@ -145,6 +145,10 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // this.setState({
+    //   errors: false,
+    // });
+
     // Debug Auth contex in App
     const authToken = sessionStorage.getItem("Auth Token");
 
@@ -188,6 +192,7 @@ class App extends Component {
             path="/"
             element={
               <LoginForm
+                errors={this.state.errors}
                 loading={this.state.loading}
                 handleFormAction={this.handleFormAction}
                 isAuth={this.state.isAuth}
@@ -200,6 +205,7 @@ class App extends Component {
             path="register"
             element={
               <RegisterForm
+                errors={this.state.errors}
                 loading={this.state.loading}
                 handleFormAction={this.handleFormAction}
                 isAuth={this.state.isAuth}
