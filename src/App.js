@@ -32,6 +32,8 @@ class App extends Component {
   };
 
   handleFormAction = (context, email, password) => {
+    /* This method check context of the submited Form and do needed work  */
+
     // Update App state
     this.setState(
       () => ({
@@ -80,7 +82,7 @@ class App extends Component {
 
     await createUserWithEmailAndPassword(auth, email, password)
       .then((response) => {
-        console.log(response); // TODO need to inform user when success and when we have errors
+        //console.log(response); // TODO need to inform user when success and when we have errors
         sessionStorage.setItem(
           "Auth Token",
           response._tokenResponse.refreshToken
@@ -91,11 +93,11 @@ class App extends Component {
 
         sendEmailVerification(auth.currentUser)
           .then(() => {
-            console.log("Email verification sent!");
+            // console.log("Email verification sent!");
           })
           .catch((error) => {
             const errorMessage = error.message;
-            console.log("Error sendEmailVerification", errorMessage);
+            // console.log("Error sendEmailVerification", errorMessage);
           });
       })
       .catch((error) => {
@@ -131,9 +133,13 @@ class App extends Component {
 
   userLogout = () => {
     this.setState({ loading: true });
-
     sessionStorage.clear();
     this.setState({ isAuth: false, loading: false });
+  };
+
+  // clear error message when user go to next url
+  errorsOff = () => {
+    this.setState({ errors: false });
   };
 
   componentDidMount() {
@@ -145,23 +151,17 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // this.setState({
-    //   errors: false,
-    // });
-
     // Debug Auth contex in App
     const authToken = sessionStorage.getItem("Auth Token");
+    // authToken ? console.log("Auth ready") : console.log("Not Auth user");
 
-    if (authToken) {
-      console.log("Auth ready");
-    } else {
-      console.log("Not Auth user");
+    // show errors message if we have str
+    if (prevState.errors == !this.state.errors) {
+      let timer = setTimeout(this.errorsOff, 3500);
     }
 
-    if (this.state.errors) {
-      setTimeout(() => this.setState({ errors: false }), 3500);
-    }
-
+    // Checking user Auth.
+    // We can delete user account but if we have not this check-work our user be a still login
     if (prevState.isAuth == !this.state.isAuth) {
       this.checkAuth(auth);
     }
@@ -192,6 +192,7 @@ class App extends Component {
             path="/"
             element={
               <LoginForm
+                errorsOff={this.errorsOff}
                 errors={this.state.errors}
                 loading={this.state.loading}
                 handleFormAction={this.handleFormAction}
@@ -205,6 +206,7 @@ class App extends Component {
             path="register"
             element={
               <RegisterForm
+                errorsOff={this.errorsOff}
                 errors={this.state.errors}
                 loading={this.state.loading}
                 handleFormAction={this.handleFormAction}

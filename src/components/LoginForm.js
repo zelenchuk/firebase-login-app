@@ -23,6 +23,12 @@ class LoginForm extends Component {
     handleFormAction("LOGIN", email, password);
   };
 
+  componentWillUnmount() {
+    // clear error message when user go to next url
+
+    this.props.errorsOff();
+  }
+
   render() {
     document.title = "Login | Firebase Login App";
 

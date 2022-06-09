@@ -18,6 +18,11 @@ class RegisterForm extends Component {
     handleFormAction("REGISTER", email, password);
   };
 
+  componentWillUnmount() {
+    // clear error message when user go to next url
+    this.props.errorsOff();
+  }
+
   render() {
     document.title = "Register | Firebase Login App";
 
